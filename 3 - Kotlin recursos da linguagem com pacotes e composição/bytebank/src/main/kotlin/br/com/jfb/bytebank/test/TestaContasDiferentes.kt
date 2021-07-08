@@ -1,16 +1,36 @@
-import models.ContaCorrente
-import models.ContaPoupanca
+import br.com.jfb.bytebank.models.Cliente
+import br.com.jfb.bytebank.models.ContaCorrente
+import br.com.jfb.bytebank.models.ContaPoupanca
+import br.com.jfb.bytebank.models.Endereco
 
 fun testaContasDiferentes() {
+
+  val alex = Cliente(
+    nome = "Alex",
+    cpf = "85274196322",
+    senha = 123456,
+    endereco = Endereco(
+      logradouro = "Rua Vergueiro"
+    )
+    )
   val contaCorrente = ContaCorrente(
-    titular = "Alex",
+    titular = alex,
     numero = 7896
   )
 
+  val fran = Cliente(
+    nome = "Fran",
+    cpf = "32165498745",
+    senha = 123456)
   val contaPoupanca = ContaPoupanca(
-    titular = "Fran",
+    titular = fran,
     numero = 3216
   )
+
+  println("titular: ")
+  println("Nome do titular: ${contaCorrente.titular.nome}")
+  println("cpf do titular: ${contaCorrente.titular.cpf}")
+  println("Endereco: ${contaCorrente.titular.endereco.logradouro}")
 
   contaCorrente.deposita(1000.00)
   contaPoupanca.deposita(1000.00)

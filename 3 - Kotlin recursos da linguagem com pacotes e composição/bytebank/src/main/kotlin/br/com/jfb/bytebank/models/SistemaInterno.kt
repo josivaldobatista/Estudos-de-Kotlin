@@ -1,6 +1,4 @@
-package models
-
-import models.Autenticavel
+package br.com.jfb.bytebank.models
 
 class SistemaInterno {
 

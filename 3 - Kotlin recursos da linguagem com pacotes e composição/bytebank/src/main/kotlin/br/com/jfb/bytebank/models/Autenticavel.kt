@@ -1,4 +1,4 @@
-package models
+package br.com.jfb.bytebank.models
 
 interface Autenticavel {
 

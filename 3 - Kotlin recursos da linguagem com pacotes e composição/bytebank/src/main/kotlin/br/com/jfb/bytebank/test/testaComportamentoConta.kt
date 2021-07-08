@@ -1,14 +1,19 @@
-import models.ContaCorrente
-import models.ContaPoupanca
+import br.com.jfb.bytebank.models.Cliente
+import br.com.jfb.bytebank.models.ContaCorrente
+import br.com.jfb.bytebank.models.ContaPoupanca
 
 fun testaComportamentoConta() {
-  val contaValdo = ContaCorrente(titular = "Valdo Batista", numero = 7536)
+
+  val valdo = Cliente(nome = "Valdo Batista", cpf = "987654123355", senha = 123456)
+
+  val contaValdo = ContaCorrente(titular = valdo, numero = 7536)
   contaValdo.deposita(1000.00)
   println(contaValdo.titular)
   println(contaValdo.numero)
   println(contaValdo.saldo)
 
-  val contaMaria = ContaPoupanca(numero = 9516, titular = "Maria Banana")
+  val maria = Cliente(nome = "Maria White", cpf = "56489723144", senha = 123456)
+  val contaMaria = ContaPoupanca(numero = 9516, titular = maria)
   contaMaria.deposita(6000.00)
   println(contaMaria.titular)
   println(contaMaria.numero)

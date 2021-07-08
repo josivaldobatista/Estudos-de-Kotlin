@@ -1,12 +1,11 @@
-package models
+package br.com.jfb.bytebank.models
 
-import models.FuncionarioAdmin
-
-class Gerente(
+class Diretor(
   nome: String,
   cpf: String,
   salario: Double,
-  senha: Int
+  senha: Int,
+  val plr: Double
 ) : FuncionarioAdmin(
   nome = nome,
   cpf = cpf,

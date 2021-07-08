@@ -1,6 +1,4 @@
-package models
-
-import models.Funcionario
+package br.com.jfb.bytebank.models
 
 class Auxiliar(
   nome: String,

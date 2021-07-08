@@ -1,7 +1,4 @@
-package models
-
-import models.Autenticavel
-import models.Funcionario
+package br.com.jfb.bytebank.models
 
 abstract class FuncionarioAdmin(
   nome: String,

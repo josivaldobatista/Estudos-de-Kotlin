@@ -1,4 +1,4 @@
-package models
+package br.com.jfb.bytebank.models
 
 abstract class Funcionario(
   val nome: String,

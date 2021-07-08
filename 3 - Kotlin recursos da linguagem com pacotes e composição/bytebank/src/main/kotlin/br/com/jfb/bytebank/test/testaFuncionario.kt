@@ -1,11 +1,11 @@
-import models.Analista
-import models.CalculadoraBonificacao
-import models.Diretor
-import models.Gerente
+import br.com.jfb.bytebank.models.Analista
+import br.com.jfb.bytebank.models.CalculadoraBonificacao
+import br.com.jfb.bytebank.models.Diretor
+import br.com.jfb.bytebank.models.Gerente
 
 fun testaFuncionarios() {
   println()
-  println("Informações do models.Funcionario")
+  println("Informações do br.com.jfb.bytebank.models.Funcionario")
   val alex = Analista(
     "Alex Batista",
     "333.555.789.65",
@@ -25,7 +25,7 @@ fun testaFuncionarios() {
   )
 
   println()
-  println("Informações de models.Gerente")
+  println("Informações de br.com.jfb.bytebank.models.Gerente")
   println("Nome: ${fran.nome}")
   println("CPF: ${fran.cpf}")
   println("Salário: ${fran.salario}")
@@ -38,7 +38,7 @@ fun testaFuncionarios() {
   }
 
   println()
-  println("Informações de models.Diretor")
+  println("Informações de br.com.jfb.bytebank.models.Diretor")
   val gui = Diretor(
     nome = "Guilherme",
     cpf = "123.456.789.32",
@@ -70,6 +70,7 @@ fun testaFuncionarios() {
   calculadora.registra(fran)
   calculadora.registra(gui)
   calculadora.registra(maria)
+  // calculadora.registra(1) <- apenas um teste
 
   println()
   println("Total de bonificação: ${calculadora.total}")
