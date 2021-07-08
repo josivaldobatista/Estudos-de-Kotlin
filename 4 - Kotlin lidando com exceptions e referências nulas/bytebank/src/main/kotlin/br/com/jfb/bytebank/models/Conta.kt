@@ -1,5 +1,7 @@
 package br.com.jfb.bytebank.models
 
+import br.com.jfb.bytebank.exceptions.SaldoInsuficienteException
+
 abstract class Conta(
   var titular: Cliente,
   val numero: Int
@@ -29,13 +31,13 @@ abstract class Conta(
 
   abstract fun sacar(valorSacar: Double)
 
-  fun transferencia(contaDestino: Conta, valor: Double): Boolean {
-    if (saldo >= valor) {
-      sacar(valor)
-      contaDestino.deposita(valor)
-      return true
+  fun transferencia(contaDestino: Conta, valor: Double) {
+    if (saldo < valor) {
+      throw SaldoInsuficienteException()
     }
-    return false
+    sacar(valor)
+    contaDestino.deposita(valor)
+
   }
 }
 

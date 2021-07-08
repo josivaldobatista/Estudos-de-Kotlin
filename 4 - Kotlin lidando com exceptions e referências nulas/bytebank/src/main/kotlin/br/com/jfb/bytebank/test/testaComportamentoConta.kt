@@ -1,3 +1,4 @@
+import br.com.jfb.bytebank.exceptions.SaldoInsuficienteException
 import br.com.jfb.bytebank.models.Cliente
 import br.com.jfb.bytebank.models.ContaCorrente
 import br.com.jfb.bytebank.models.ContaPoupanca
@@ -33,10 +34,13 @@ fun testaComportamentoConta() {
   println("************ TRANSFERÊNCIA ************")
   println("Tranferindo da conta da Maria para conta do Valdo")
 
-  if (contaMaria.transferencia(contaValdo, 1000.0)) {
+  try {
+    contaMaria.transferencia(contaValdo, 5000.0)
     println("Transferência realizada com sucesso")
-  } else {
+  } catch (e: SaldoInsuficienteException) {
     println("Erro na Transferência")
+    println("Saldo insuficiente")
+    e.printStackTrace()
   }
 
   println("Saldo do Valdo: ${contaValdo.saldo}")
