@@ -1,3 +1,5 @@
 package br.com.jfb.bytebank.exceptions
 
-class SaldoInsuficienteException : Exception("Saldo não é insuficiente")
+class SaldoInsuficienteException(
+  mensagem: String = "Saldo insuficiente"
+) : Exception(mensagem)
