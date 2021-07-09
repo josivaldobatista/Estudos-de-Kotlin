@@ -2,11 +2,13 @@ package br.com.jfb.bytebank.models
 
 import br.com.jfb.bytebank.exceptions.FalhaAutenticacaoException
 import br.com.jfb.bytebank.exceptions.SaldoInsuficienteException
+import java.lang.NumberFormatException
+import java.lang.RuntimeException
 
 abstract class Conta(
   var titular: Cliente,
   val numero: Int
-) : Autenticavel {
+) : Autenticavel by titular{
 
   var saldo = 0.0
     protected set
@@ -38,6 +40,7 @@ abstract class Conta(
         mensagem = "Saldo é insuficiente para essa operação, Saldo atual: $saldo"
       )
     }
+    // throw NumberFormatException()
     if (!autentica(senha)) {
       throw FalhaAutenticacaoException()
     }
@@ -52,6 +55,16 @@ abstract class Conta(
   override fun autentica(senha: Int): Boolean {
     return titular.autentica(senha) // <- AQUI
   }
+
+  /**
+   * Esse código acima é chamado de delegation e pode ser feita como
+   * está abaixo usando o "by titular" na classe conta.
+   *
+   * abstract class Conta(
+   * val titular: Cliente,
+   * val numero: Int
+   * ) : Autenticavel by titular
+   * */
 
 }
 
